@@ -1,3 +1,39 @@
+let formulario = document.getElementById("contenedorFormulario");
+let juego = document.getElementById("contenedorJuego");
+let botonJugar = document.getElementById("jugar");
+
+
+
+const ocultarFormulario = () => {
+    formulario.style.display = 'none';
+}
+
+const mostrarJuego = () => {
+    juego.style.display = 'block';
+}
+
+//Formulario
+function guardarDatos() {
+    localStorage.nombre = document.getElementById("nombre").value;
+    localStorage.apellido = document.getElementById("apellido").value;
+  }
+  
+  function recuperarDatos() {
+    if ((localStorage.nombre != undefined) && (localStorage.apellido != undefined)) {
+        document.getElementById("datos").innerHTML = "Nombre: " + localStorage.nombre + " Apellido: " + localStorage.apellido;
+    } else {
+        document.getElementById("datos").innerHTML = "No has introducido tu nombre y tu apellido";
+    } 
+  } 
+
+  botonJugar.addEventListener("click",() => {
+    ocultarFormulario();
+    mostrarJuego();
+  });
+
+
+
+//Juego
 let jugador = 'X';
 
         for (let x = 1; x <= 9; x++) {
@@ -61,3 +97,5 @@ let jugador = 'X';
         
 
         let resultado = localStorage.setItem ('resultado', alert);
+
+    
